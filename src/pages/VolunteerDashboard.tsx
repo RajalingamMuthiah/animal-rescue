@@ -46,6 +46,10 @@ const VolunteerDashboard: React.FC = () => {
   const [volunteerName, setVolunteerName] = useState(user?.name || 'Volunteer');
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [rescueCount, setRescueCount] = useState(0);
+  const [animalsFed, setAnimalsFed] = useState(0);
+  const [rewardPoints, setRewardPoints] = useState(0);
+  const [recentActivities, setRecentActivities] = useState<RescueRequest[]>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Redirect if not logged in
@@ -97,6 +101,14 @@ const VolunteerDashboard: React.FC = () => {
 
         if (isMounted) {
           setAssignedRescues(rescues || []);
+          
+          // Calculate stats
+          setRescueCount(rescues?.length || 0);
+          setAnimalsFed(Math.floor((rescues?.length || 0) * 1.5)); // Approximation
+          setRewardPoints((rescues?.length || 0) * 100);
+          
+          // Show last 5 rescues as recent activities
+          setRecentActivities((rescues || []).slice(0, 5));
         }
       } catch (error) {
         console.error('Error loading volunteer data:', error);
@@ -137,6 +149,51 @@ const VolunteerDashboard: React.FC = () => {
       .join('')
       .toUpperCase()
       .slice(0, 2);
+  };
+
+  const handlePhotoUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      const { data: authData } = await supabase.auth.getUser();
+      const volunteerId = authData.user?.id;
+
+      if (!volunteerId) {
+        alert('Please log in first');
+        return;
+      }
+
+      // Upload to Supabase storage
+      const fileName = `${volunteerId}-${Date.now()}-${file.name}`;
+      const { error: uploadError } = await supabase.storage
+        .from('gallery')
+        .upload(fileName, file, { cacheControl: '3600', upsert: false });
+
+      if (uploadError) throw uploadError;
+
+      // Get public URL
+      const { data: publicUrl } = supabase.storage
+        .from('gallery')
+        .getPublicUrl(fileName);
+
+      // Save to database
+      const { error: dbError } = await supabase.from('images').insert({
+        submitted_by: volunteerId,
+        image_url: publicUrl.publicUrl,
+        visibility: 'public',
+        approved_by_admin: false,
+        deleted_for_user: false,
+      });
+
+      if (dbError) throw dbError;
+
+      alert('✅ Photo uploaded successfully!');
+      event.target.value = ''; // Reset input
+    } catch (error) {
+      console.error('Photo upload error:', error);
+      alert('❌ Failed to upload photo');
+    }
   };
 
   const handleAcceptRescue = async (rescueId: string) => {
@@ -313,14 +370,14 @@ const VolunteerDashboard: React.FC = () => {
         
         {recentActivities.length > 0 ? (
           <ul className="activity-list">
-            {recentActivities.map((activity) => (
+            {recentActivities.map((activity: RescueRequest) => (
               <li key={activity.id} className="activity-item">
                 <div className="activity-icon">🐾</div>
                 <div className="activity-details">
-                  <strong>{activity.location}</strong>
-                  <span>Contact: {activity.contact}</span>
+                  <strong>{activity.location_text}</strong>
+                  <span>Contact: {activity.reporter_phone}</span>
                   <span style={{ display: 'block', marginTop: '5px' }}>
-                    {new Date(activity.timestamp).toLocaleString()}
+                    {new Date(activity.created_at).toLocaleString()}
                   </span>
                 </div>
               </li>
