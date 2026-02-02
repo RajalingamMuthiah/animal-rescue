@@ -196,6 +196,7 @@ const VolunteerDashboard: React.FC = () => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleAcceptRescue = async (rescueId: string) => {
     try {
       const { error } = await supabase
@@ -219,6 +220,7 @@ const VolunteerDashboard: React.FC = () => {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleRejectRescue = async (rescueId: string) => {
     if (!window.confirm('Are you sure you want to reject this rescue? It will be reassigned to another volunteer.')) {
       return;
@@ -247,7 +249,8 @@ const VolunteerDashboard: React.FC = () => {
       alert('❌ Failed to reject rescue. Please try again.');
     }
   };
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+  
   const calculateDistance = (rescue: RescueRequest) => {
     if (!volunteerData?.latitude || !volunteerData?.longitude) {
       return 'N/A';
