@@ -173,7 +173,7 @@ npm install -g vercel
 
 2. **Deploy**:
 ```bash
-cd animal-rescue
+cd animal-rescue-emergency-response-platform
 vercel
 ```
 

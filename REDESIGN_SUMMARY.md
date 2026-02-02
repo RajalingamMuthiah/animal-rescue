@@ -197,7 +197,7 @@ src/
 ## 🚀 HOW TO RUN
 
 ```bash
-cd "c:\Program Files\.vscode\Dog-life\animal-rescue"
+cd "c:\Program Files\.vscode\Dog-life\animal-rescue-emergency-response-platform"
 npm start
 ```
 

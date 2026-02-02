@@ -14,7 +14,7 @@ A complete, working animal rescue platform built with React, TypeScript, and pla
 ## 📁 Project Structure
 
 ```
-animal-rescue/
+animal-rescue-emergency-response-platform/
 ├── src/
 │   ├── components/
 │   │   ├── Header.tsx          # Navigation header
@@ -49,7 +49,7 @@ animal-rescue/
 
 1. Navigate to the project directory:
    ```bash
-   cd animal-rescue
+   cd animal-rescue-emergency-response-platform
    ```
 
 2. Install dependencies (already done):

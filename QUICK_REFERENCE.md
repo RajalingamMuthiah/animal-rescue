@@ -170,7 +170,7 @@ All other routes unchanged:
 ## 📋 FILE LOCATIONS
 
 ```
-animal-rescue/
+animal-rescue-emergency-response-platform/
 ├── src/
 │   ├── pages/
 │   │   ├── LandingPage.tsx (REDESIGNED)
@@ -239,7 +239,7 @@ Visitors will:
 ## 📞 QUICK START
 
 ```bash
-cd "c:\Program Files\.vscode\Dog-life\animal-rescue"
+cd "c:\Program Files\.vscode\Dog-life\animal-rescue-emergency-response-platform"
 npm start
 ```
 

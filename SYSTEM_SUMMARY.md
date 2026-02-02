@@ -94,7 +94,7 @@ REACT_APP_SUPABASE_ANON_KEY=eyJhbG...
 
 ### 1. Run Database Migration
 ```bash
-cd animal-rescue
+cd animal-rescue-emergency-response-platform
 # If using Supabase CLI:
 supabase db push
 

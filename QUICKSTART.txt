@@ -16,13 +16,13 @@ Welcome to the Animal Rescue Website!
 
 📂 PROJECT LOCATION:
 --------------------
-c:\Program Files\.vscode\Dog-life\animal-rescue
+c:\Program Files\.vscode\Dog-life\animal-rescue-emergency-response-platform
 
 🎯 TO RUN THE APP:
 ------------------
 1. Open terminal in VS Code
 2. Navigate to project:
-   cd "c:\Program Files\.vscode\Dog-life\animal-rescue"
+   cd "c:\Program Files\.vscode\Dog-life\animal-rescue-emergency-response-platform"
 3. Start the app:
    npm start
 4. Wait for "Compiled successfully!" message
