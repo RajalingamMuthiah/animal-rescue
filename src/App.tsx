@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import LandingPage from './pages/LandingPage';
@@ -17,28 +18,30 @@ import './styles/global.css';
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="App">
-          <Header />
-          
-          {/* Define all routes */}
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/rescue" element={<RescueForm />} />
-            <Route path="/volunteer" element={<VolunteerDashboard />} />
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/my-gallery" element={<MyGallery />} />
-          </Routes>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <Header />
+            
+            {/* Define all routes */}
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/rescue" element={<RescueForm />} />
+              <Route path="/volunteer" element={<VolunteerDashboard />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/profile" element={<UserProfile />} />
+              <Route path="/my-gallery" element={<MyGallery />} />
+            </Routes>
 
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+            <Footer />
+          </div>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
 

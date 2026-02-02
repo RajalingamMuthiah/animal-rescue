@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import JellySwitchToggle from './JellySwitchToggle';
 import '../styles/header.css';
 
 const Header: React.FC = () => {
@@ -65,9 +66,12 @@ const Header: React.FC = () => {
               <Link to="/rescue" className="btn btn-primary">
                 Get Started
               </Link>
+              <JellySwitchToggle />
             </>
           ) : (
-            <div className="user-menu" ref={dropdownRef}>
+            <>
+              <JellySwitchToggle />
+              <div className="user-menu" ref={dropdownRef}>
               {/* User Avatar Button */}
               <button
                 className="user-avatar-btn"
@@ -128,7 +132,8 @@ const Header: React.FC = () => {
                   </button>
                 </div>
               )}
-            </div>
+              </div>
+            </>
           )}
         </div>
       </div>

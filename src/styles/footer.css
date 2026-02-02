@@ -1,11 +1,16 @@
 /* Footer Styles - Modern NGO-style footer */
 
 .footer {
-  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
   color: #ffffff;
   padding: 60px 20px 0;
   margin-top: 80px;
   border-top: 4px solid #66bb6a;
+  transition: background 0.3s ease;
+}
+
+:root[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
 }
 
 .footer-container {
