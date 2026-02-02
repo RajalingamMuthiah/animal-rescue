@@ -10,7 +10,6 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [isLoaded, setIsLoaded] = useState(false);
 
   // Load theme from localStorage on mount
   useEffect(() => {
@@ -20,7 +19,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
     setTheme(initialTheme);
     document.documentElement.dataset.theme = initialTheme;
-    setIsLoaded(true);
   }, []);
 
   // Toggle theme and persist to localStorage
@@ -32,11 +30,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       return newTheme;
     });
   };
-
-  // Prevent flash by not rendering until theme is loaded
-  if (!isLoaded) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
