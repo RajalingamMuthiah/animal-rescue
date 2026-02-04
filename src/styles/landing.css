@@ -512,7 +512,8 @@
     height: auto;
     min-height: 70vh;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 140px;
+    padding-top: 20px;
   }
 
   .hero-container {

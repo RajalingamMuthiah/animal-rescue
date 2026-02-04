@@ -51,14 +51,17 @@ const Header: React.FC = () => {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        {/* Logo */}
-        <Link to="/" className="logo">
-          <span>🐾</span>
-          Animal Rescue
-        </Link>
+        {/* Header Top - Logo and Theme Toggle */}
+        <div className="header-top">
+          <Link to="/" className="logo">
+            <span>🐾</span>
+            Animal Rescue
+          </Link>
+          <JellySwitchToggle />
+        </div>
 
-        {/* Navigation Links */}
-        <div className="nav-links">
+        {/* Header Nav - Navigation Links */}
+        <div className="header-nav">
           {!isLoggedIn ? (
             <>
               <Link to="/login">Login</Link>
@@ -66,11 +69,9 @@ const Header: React.FC = () => {
               <Link to="/rescue" className="btn btn-primary">
                 Get Started
               </Link>
-              <JellySwitchToggle />
             </>
           ) : (
             <>
-              <JellySwitchToggle />
               <div className="user-menu" ref={dropdownRef}>
               {/* User Avatar Button */}
               <button

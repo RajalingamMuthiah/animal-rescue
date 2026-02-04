@@ -33,6 +33,28 @@
   padding: 0 20px;
 }
 
+/* Desktop: Header top + nav on same row */
+.header-top {
+  display: contents;
+}
+
+.header-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto;
+  order: 1;
+}
+
+.logo {
+  order: 0;
+}
+
+.jelly-switch-container {
+  order: 2;
+  margin-left: 12px;
+}
+
 .logo {
   font-size: 24px;
   font-weight: bold;
@@ -44,11 +66,6 @@
   transition: all 0.3s ease;
 }
 
-/* Logo text white when header is transparent (hero section) */
-/*.header:not(.scrolled) .logo {
-  color: #ffffff;
-}*/
-
 .logo span {
   font-size: 28px;
 }
@@ -59,8 +76,8 @@
   align-items: center;
 }
 
-.nav-links a,
-.nav-links button {
+.header-nav a,
+.header-nav button {
   text-decoration: none;
   color: var(--primary-green);
   font-weight: 500;
@@ -74,32 +91,32 @@
 }
 
 /* When scrolled, change text color to dark */
-.header.scrolled .nav-links a,
-.header.scrolled .nav-links button {
+.header.scrolled .header-nav a,
+.header.scrolled .header-nav button {
   color: var(--text-primary);
 }
 
-:root[data-theme='dark'] .header.scrolled .nav-links a,
-:root[data-theme='dark'] .header.scrolled .nav-links button {
+:root[data-theme='dark'] .header.scrolled .header-nav a,
+:root[data-theme='dark'] .header.scrolled .header-nav button {
   color: var(--text-primary);
 }
 
-.nav-links a:hover,
-.nav-links button:hover {
+.header-nav a:hover,
+.header-nav button:hover {
   color: var(--primary-green);
 }
 
 /* Scrolled state hover */
-.header.scrolled .nav-links a:hover,
-.header.scrolled .nav-links button:hover {
+.header.scrolled .header-nav a:hover,
+.header.scrolled .header-nav button:hover {
   background-color: var(--light-green);
 }
 
-.nav-links .btn-primary {
+.header-nav .btn-primary {
   color: var(--white);
 }
 
-.nav-links .btn-primary:hover {
+.header-nav .btn-primary:hover {
   background-color: var(--dark-green);
   color: var(--white);
 }
@@ -255,22 +272,39 @@
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
+  .header-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    order: 0;
   }
 
-  .nav-links a,
-  .nav-links button {
-    padding: 8px 15px;
-    font-size: 14px;
+  .header-top .jelly-switch-container {
+    margin-left: 0;
   }
 
   .logo {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .header-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 0;
+    order: 1;
+  }
+
+  .header-nav a,
+  .header-nav button {
+    padding: 8px 15px;
+    font-size: 14px;
   }
 
   .user-dropdown {

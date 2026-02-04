@@ -1,26 +1,22 @@
-// WhatsApp Button Component - Floating button to open WhatsApp group
+// WhatsApp Button Component - Professional floating button with official logo
 import React from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
+
+const WhatsAppIcon = FaWhatsapp as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 
 const WhatsAppButton: React.FC = () => {
-  // Handle WhatsApp click - opens WhatsApp group link
   const handleWhatsAppClick = () => {
-    // Replace with actual WhatsApp group link
     window.open('https://chat.whatsapp.com/EidHbbXLJF6GvCiPwHRpe3?mode=gi_t', '_blank');
   };
 
   return (
     <button
-      className="floating-btn"
+      className="whatsapp-floating-btn"
       onClick={handleWhatsAppClick}
-      style={{
-        bottom: '20px',
-        left: '20px',
-        backgroundColor: '#25D366',
-        color: 'white',
-      }}
-      title="Contact us on WhatsApp"
+      aria-label="WhatsApp"
+      title="WhatsApp"
     >
-      💬
+      <WhatsAppIcon aria-hidden="true" focusable="false" />
     </button>
   );
 };

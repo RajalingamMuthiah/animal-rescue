@@ -196,6 +196,32 @@ label {
   transform: scale(1.1);
 }
 
+/* Professional WhatsApp Floating Button - Official Logo */
+.whatsapp-floating-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  padding: 0;
+  color: #25D366;
+  font-size: 28px;
+}
+
+.whatsapp-floating-btn:focus-visible {
+  outline: 2px solid #25D366;
+  outline-offset: 2px;
+}
+
 /* Stats Cards */
 .stats-grid {
   display: grid;
