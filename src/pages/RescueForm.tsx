@@ -249,7 +249,7 @@ const RescueForm: React.FC = () => {
             borderRadius: '8px',
             border: '1px solid #ffc107'
           }}>
-            <strong>⚡ Emergency?</strong> Call our hotline: <strong>+1 (234) 567-890</strong>
+            <strong>⚡ Emergency?</strong> Call our hotline: <strong>+91 9833460712</strong>
           </div>
         </div>
       </div>

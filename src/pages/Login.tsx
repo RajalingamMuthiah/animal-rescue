@@ -92,7 +92,7 @@ const Login: React.FC = () => {
           <div style={{ 
             marginTop: '30px', 
             padding: '15px', 
-            backgroundColor: '#f0f0f0', 
+           /* backgroundColor: '#f0f0f0',*/ 
             borderRadius: '8px',
             fontSize: '14px'
           }}>

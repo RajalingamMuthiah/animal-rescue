@@ -190,6 +190,7 @@
   font-size: 44px;
   font-weight: 800;
   color: var(--text-primary);
+  /*color:black;*/
   margin: 0 0 10px 0;
   letter-spacing: -0.5px;
   text-align: center;
@@ -700,7 +701,7 @@
 .donation-section {
   width: 100%;
   padding: 80px 0;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);
+ /* background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e9 100%);*/
 }
 
 .donation-message {
